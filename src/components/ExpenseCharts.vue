@@ -1,25 +1,20 @@
-<template>
-  <div>
-      <p>Chart goes here...<p></p>
-  </div>
-</template>
-
 <script>
+import { Line, mixins } from "vue-chartjs";
+const { reactiveProp } = mixins
+
 export default {
-  name: "ExpenseCharts",
+  extends: Line,
+  mixins: [reactiveProp],
   data() {
-    return {
+    return{ 
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
     }
   },
-  methods: {
-
+  mounted() {
+    this.renderChart(this.chartData,this.options);
   }
-}
+};
 </script>
-
-<style scoped>
-div {
-  color: white;
-  background-color: black;
-}
-</style>

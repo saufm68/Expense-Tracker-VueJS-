@@ -32,6 +32,7 @@ export default {
         date: this.currentDate,
         expense: this.currentExpense
       }
+      
       this.$emit('addExpense', payload);
 
       this.currentDate = new Date().toISOString().substring(0, 10);
